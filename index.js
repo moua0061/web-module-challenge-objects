@@ -28,7 +28,12 @@ Test your createMenuItems function by doing the following:
   
   For example: createMenuItem("pizza",5,"lunch") would return this as the object: {name:"Pizza",price:5,category:"lunch"}
 */
-console.log(createMenuItem('Padthai', 12, 'dinner'))
+console.log(createMenuItem('Padthai', 12, 'dinner'));
+
+console.log(createMenuItem('Pho', 13, 'lunch'));
+
+console.log(createMenuItem('Tacos', 4, 'dinner'));
+
 
 
 
@@ -45,12 +50,17 @@ Using the burger object below do the following:
   For example: burger.discount("teacher") would return 13.5 and burger.discount("public") would return 16.2
 */
 const burger = {
-  name: "Burger", 
-  price: 18, 
-  category: "Lunch", 
-  
+  name: "Burger",
+  price: 18,
+  category: "Lunch",
+  discount: function (customer) {
+    if (customer === "teacher" || customer === "student") {
+      return this.price * 0.75;
+    } else {
+      return this.price * 0.9;
+    }
+  }
 }
-
 
 
 ///////////////Reviews (MVP)///////////////////
@@ -68,8 +78,8 @@ const reviews = [
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 3: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 Using the reviews array above:
   1. log only Julius' feedback to the console - no function needed 
-*/
-
+*/ 
+console.log(reviews[5].feedback);
 
 
 
@@ -83,7 +93,6 @@ console.log(reviews);
 
 
 
-
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 5: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Write a function that creates an object with name, rating, feedback, add the new review to the end of an array and returns the resulting array
  the addReview function below to do the following:
@@ -93,8 +102,10 @@ Write a function that creates an object with name, rating, feedback, add the new
   4. should return the resulting array
 */
 
-function addReview(/*Your Code Here */){
+function addReview(arr, name, rating, feedback){
   /*Your Code Here */
+  arr.push({name, rating, feedback});
+  return arr
 }
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
